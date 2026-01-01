@@ -16,6 +16,7 @@ extern "C" __declspec(dllexport) LRESULT __stdcall GetMsgHook(int nCode, WPARAM 
 void DllAttached()
 {
     myWindowMessageCode = RegisterWindowMessageW(L"myWindowMessage");
+    assert(myWindowMessageCode != 0);
 }
 
 BOOL WINAPI DllMain(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpvReserved)
