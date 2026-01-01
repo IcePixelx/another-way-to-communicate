@@ -66,7 +66,7 @@ extern "C" __declspec(dllexport) LRESULT __stdcall GetMsgHook(int nCode, WPARAM 
             buf.setBuffer(&msg->wParam);
             buf.setBufferSize(sizeof(msg->wParam));
 
-            WindowMessage windowMsg{};
+            WindowMessage windowMsg;
             ReadWindowMessage(&buf, &windowMsg);
             // ...
         }
