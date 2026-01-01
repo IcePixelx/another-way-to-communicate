@@ -1,9 +1,9 @@
 # another-way-to-communicate
 
-Creating named shared memory & pipes can be a hassle to setup right for interprocess communications on Windows.
-It might also be overkill to set them up for the amount of data through-put you might have or it's one-way communication to the target process.
+Creating named shared memory & pipes can be a hassle to setup right for interprocess communications on Windows.<br/>
+It might also be overkill to set them up for the amount of data through-put you might have or it's one-way communication to the target process.<br/>
 
-A pretty common injection technique is utilizing SetWindowsHookEx, more information on that here https://learn.microsoft.com/en-us/windows/win32/winmsg/using-hooks
+A pretty common injection technique is utilizing SetWindowsHookEx, more information on that here https://learn.microsoft.com/en-us/windows/win32/winmsg/using-hooks<br/>
 So we already have a channel available where we can technically receive window message communication from.
 
 With RegisterWindowMessage we can register a new window message code that is unique throughout the system, more information on that function here https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-registerwindowmessagew
@@ -13,7 +13,7 @@ Combining the two things we can have a one-way communication channel to our inje
 The catch is now the following, we technically only have 16 bytes available to us to send information to our injected module in the target process.
 wParam and lParam allows us each to send 8 bytes of data via PostMessage, more information here https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-postmessagew
 
-You could register multiple window message codes for individual messages you might wanna transmit to your injected module.
+You could register multiple window message codes for individual messages you might wanna transmit to your injected module.<br/>
 Or you split those 16 bytes up into individual bits, little example below.
 
 ```cpp
