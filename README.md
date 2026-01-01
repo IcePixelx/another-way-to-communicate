@@ -10,7 +10,7 @@ With RegisterWindowMessage we can register a new window message code that is uni
 
 Combining the two things we can have a one-way communication channel to our injected module in the target process.
 
-The catch is now the following, we technically only have 16 bytes available to us to send information to our injected module in the target process.
+The catch is now the following, we technically only have 16 bytes available to us to send information to our injected module in the target process.<br/>
 wParam and lParam allows us each to send 8 bytes of data via PostMessage, more information here https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-postmessagew
 
 You could register multiple window message codes for individual messages you might wanna transmit to your injected module.<br/>
